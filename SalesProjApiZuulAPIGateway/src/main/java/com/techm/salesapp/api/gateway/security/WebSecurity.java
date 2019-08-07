@@ -13,35 +13,27 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
-    private final Environment environment;
+	private final Environment environment;
 
-    @Autowired
-    public WebSecurity(Environment environment) {
-        this.environment = environment;
-    }
-	
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+	@Autowired
+	public WebSecurity(Environment environment) {
+		this.environment = environment;
+	}
 
-		/*
-		 * http.csrf().disable(); http.headers().frameOptions().disable();
-		 * http.authorizeRequests()
-		 * .antMatchers(environment.getProperty("api.users.actuator.url.path")).
-		 * permitAll()
-		 * .antMatchers(environment.getProperty("api.zuul.actuator.url.path")).permitAll
-		 * ()
-		 * .antMatchers(environment.getProperty("api.h2console.url.path")).permitAll()
-		 * .antMatchers(HttpMethod.POST,
-		 * environment.getProperty("api.registration.url.path")).permitAll()
-		 * .antMatchers(HttpMethod.POST,
-		 * environment.getProperty("api.login.url.path")).permitAll()
-		 * .anyRequest().authenticated() .and() .addFilter(new
-		 * AuthorizationFilter(authenticationManager(), environment));
-		 * 
-		 * http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.
-		 * STATELESS);
-		 */
-    	
-    }	
-	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
+		http.authorizeRequests().antMatchers(environment.getProperty("api.users.actuator.url.path")).permitAll()
+				.antMatchers(environment.getProperty("api.zuul.actuator.url.path")).permitAll()
+				.antMatchers(environment.getProperty("api.h2console.url.path")).permitAll()
+				.antMatchers(HttpMethod.POST, environment.getProperty("api.registration.url.path")).permitAll()
+				.antMatchers(HttpMethod.POST, environment.getProperty("api.login.url.path")).permitAll().anyRequest()
+				.authenticated().and().addFilter(new AuthorizationFilter(authenticationManager(), environment));
+
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+	}
+
 }

@@ -17,7 +17,7 @@ import feign.Logger;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@EnableCircuitBreaker
+/* @EnableCircuitBreaker */
 public class SalesProjApiUsersApplication {
 
 	public static void main(String[] args) {
