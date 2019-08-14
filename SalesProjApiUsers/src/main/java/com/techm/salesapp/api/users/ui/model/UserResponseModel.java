@@ -8,7 +8,7 @@ public class UserResponseModel {
     private String firstName;
     private String lastName;
     private String email;
-    private List<CrediCardResponseModel> albums;
+    private List<CrediCardResponseModel> creditCards;
     
 	public String getUserId() {
 		return userId;
@@ -34,14 +34,10 @@ public class UserResponseModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<CrediCardResponseModel> getAlbums() {
-		return albums;
+	public List<CrediCardResponseModel> getCreditCards() {
+		return creditCards;
 	}
-	public void setAlbums(List<CrediCardResponseModel> albums) {
-		this.albums = albums;
+	public void setCreditCards(List<CrediCardResponseModel> creditCards) {
+		this.creditCards = creditCards;
 	}
-    
-    
-	
-	
 }

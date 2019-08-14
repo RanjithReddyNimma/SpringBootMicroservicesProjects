@@ -15,11 +15,11 @@ import com.techm.salesapp.api.users.ui.model.CrediCardResponseModel;
 import feign.FeignException;
 import feign.hystrix.FallbackFactory;
 
-@FeignClient(name = "albums-ws", fallbackFactory = AlbumsFallbackFactory.class)
+@FeignClient(name = "creditcard-ws", fallbackFactory = AlbumsFallbackFactory.class)
 public interface CreditCardServiceClient {
 
-	@GetMapping("/users/{id}/albums")
-	public List<CrediCardResponseModel> getAlbums(@PathVariable String id);
+	@GetMapping("/users/{id}/creditcards")
+	public List<CrediCardResponseModel> getCreditCards(@PathVariable String id);
 }
 
 @Component
@@ -28,23 +28,23 @@ class AlbumsFallbackFactory implements FallbackFactory<CreditCardServiceClient> 
 	@Override
 	public CreditCardServiceClient create(Throwable cause) {
 		// TODO Auto-generated method stub
-		return new AlbumsServiceClientFallback(cause);
+		return new CreditCardsServiceClientFallback(cause);
 	}
 
 }
 
-class AlbumsServiceClientFallback implements CreditCardServiceClient {
+class CreditCardsServiceClientFallback implements CreditCardServiceClient {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private final Throwable cause;
 
-	public AlbumsServiceClientFallback(Throwable cause) {
+	public CreditCardsServiceClientFallback(Throwable cause) {
 		this.cause = cause;
 	}
 
 	@Override
-	public List<CrediCardResponseModel> getAlbums(String id) {
+	public List<CrediCardResponseModel> getCreditCards(String id) {
 		// TODO Auto-generated method stub
 
 		if (cause instanceof FeignException && ((FeignException) cause).status() == 404) {

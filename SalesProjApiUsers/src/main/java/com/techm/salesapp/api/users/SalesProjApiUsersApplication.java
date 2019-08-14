@@ -23,30 +23,26 @@ public class SalesProjApiUsersApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SalesProjApiUsersApplication.class, args);
 	}
-	
+
 	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder()
-	{
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Bean
 	@LoadBalanced
-	public RestTemplate getRestTemplate()
-	{
+	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
-	
+
 	@Bean
-	Logger.Level feignLoggerLevel()
-	{
+	Logger.Level feignLoggerLevel() {
 		return Logger.Level.FULL;
 	}
+
 	/*
-	@Bean
-	public FeignErrorDecoder getFeignErrorDecoder()
-	{
-		return new FeignErrorDecoder();
-	} */
+	 * @Bean public FeignErrorDecoder getFeignErrorDecoder() { return new
+	 * FeignErrorDecoder(); }
+	 */
 
 }

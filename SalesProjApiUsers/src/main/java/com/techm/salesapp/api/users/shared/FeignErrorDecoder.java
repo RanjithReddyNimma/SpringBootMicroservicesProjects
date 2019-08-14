@@ -28,8 +28,8 @@ public class FeignErrorDecoder implements ErrorDecoder {
 			// return new BadRequestException();
 			break;
 		case 404: {
-			if (methodKey.contains("getAlbums")) {
-				return new ResponseStatusException(HttpStatus.valueOf(response.status()), environment.getProperty("albums.exceptions.albums-not-found"));
+			if (methodKey.contains("getCreditCards")) {
+				return new ResponseStatusException(HttpStatus.valueOf(response.status()), environment.getProperty("creditcards.exceptions.creditcards-not-found"));
 			}
 			break;
 		}

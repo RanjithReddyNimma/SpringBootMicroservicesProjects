@@ -2,17 +2,11 @@ package com.techm.salesapp.api.users.ui.model;
 
 public class CrediCardResponseModel {
 
-    private String albumId;
+    private String creditCardId;
     private String userId; 
     private String name;
     private String description;
     
-	public String getAlbumId() {
-		return albumId;
-	}
-	public void setAlbumId(String albumId) {
-		this.albumId = albumId;
-	}
 	public String getUserId() {
 		return userId;
 	}
@@ -31,7 +25,10 @@ public class CrediCardResponseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-    
-    
-	
+	public String getCreditCardId() {
+		return creditCardId;
+	}
+	public void setCreditCardId(String creditCardId) {
+		this.creditCardId = creditCardId;
+	}	
 }

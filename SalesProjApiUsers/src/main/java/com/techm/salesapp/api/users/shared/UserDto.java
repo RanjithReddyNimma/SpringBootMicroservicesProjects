@@ -17,7 +17,7 @@ public class UserDto implements Serializable {
 	private String password;
 	private String userId;
 	private String encryptedPassword;
-	private List<CrediCardResponseModel> albums;
+	private List<CrediCardResponseModel> creditCards;
 	
 
 	public String getFirstName() {
@@ -68,12 +68,11 @@ public class UserDto implements Serializable {
 		this.encryptedPassword = encryptedPassword;
 	}
 
-	public List<CrediCardResponseModel> getAlbums() {
-		return albums;
+	public List<CrediCardResponseModel> getCreditCards() {
+		return creditCards;
 	}
 
-	public void setAlbums(List<CrediCardResponseModel> albums) {
-		this.albums = albums;
+	public void setCreditCards(	List<CrediCardResponseModel> creditCards) {
+		this.creditCards = creditCards;
 	}
-
 }
